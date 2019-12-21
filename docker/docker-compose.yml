@@ -4,10 +4,11 @@ services:
   db:
     image: postgres
   web:
-    build: .
-    command: python manage.py runserver 0.0.0.0:8000
+    build: 
+      context: .
+      dockerfile: "Dockerfile"
     volumes:
-      - .:/code
+      - ../site:/kmanga
     ports:
       - "8000:8000"
     depends_on:
