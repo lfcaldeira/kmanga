@@ -150,17 +150,17 @@ THUMBNAIL_ALIASES = {
 
 RQ_QUEUES = {
     'default': {
-        'HOST': 'localhost',
+        'HOST': 'db',
         'PORT': 6379,
         'DB': 0,
     },
     'high': {
-        'HOST': 'localhost',
+        'HOST': 'db',
         'PORT': 6379,
         'DB': 0,
     },
     'low': {
-        'HOST': 'localhost',
+        'HOST': 'db',
         'PORT': 6379,
         'DB': 0,
     }
