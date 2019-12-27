@@ -2,9 +2,32 @@ version: '3'
 
 services:
   db:
-    image: postgres
+    image: postgres:latest
+    restart: always
+    environment :
+      POSTGRES_PASSWORD: 'postgres'
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+
+    ports:
+      - "5432:5432"
+    volumes:
+      - ../pgdata:/var/lib/postgresql/data/pgdata
+      - ../docker-entrypoint-initdb.d/:/docker-entrypoint-initdb.d/
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8081:8080
+    environment:
+      POSTGRES_DB: 'kmanga'
+      POSTGRES_USER: 'postgres'
+      POSTGRES_PASSWORD: 'secret'
+      POSTGRES_HOST: 'db'
+
+
   web:
-    build: 
+    build:
       context: .
       dockerfile: "Dockerfile"
     volumes:

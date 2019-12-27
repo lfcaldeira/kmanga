@@ -20,8 +20,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'kmanga',
-        'HOST': 'localhost',
-        # 'PASSWORD': 'password',
+        'HOST': '',
+        'PASSWORD': 'password',
         # 'HOST': 'localhost',
         # 'PORT': '5432',
     }
