@@ -1,7 +1,0 @@
-# Local development dependencies go here
--r base.txt
-
-coverage==4.5.1
-django-debug-toolbar==1.8
-
-# selenium==3.4.3

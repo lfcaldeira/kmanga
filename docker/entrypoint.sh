@@ -1,10 +1,17 @@
 #!/bin/bash
 set -e
-cd /kmanga
-pip install -r requirements.txt
+cd /site
+
 pip install service_identity
-wget http://kindlegen.s3.amazonaws.com/kindlegen_linux_2.6_i386_v2_9.tar.gz
-tar -xzvf kindlegen_linux_2.6_i386_v2_9.tar.gz -C /kmanga/kmanga
-mv /kmanga/kmanga/kindlegen /kmanga/kmanga/bin
+
+mv /kindlegen/kindlegen /site/kmanga/bin
+
+echo "BEFORE MIGRATIONS"
 kmanga/manage.py makemigrations
+
+cp bin/0002_full_text_search.py kmanga/core/migrations/
+kmanga/manage.py migrate
+kmanga/manage.py loaddata bin/initialdata.json
+
+echo "AFTER MIGRATIONS"
 exec "$@"

@@ -27,8 +27,8 @@ import xml.dom.minidom
 from PIL import Image
 from PIL import ImageOps
 
-from mobi import Container, MangaMobi
-from mobi.mobi import WIDTH, HEIGHT
+from kmanga.mobi import Container, MangaMobi
+from kmanga.mobi.mobi import WIDTH, HEIGHT
 
 
 _xml_pretty = lambda x: xml.dom.minidom.parseString(x).toprettyxml(indent='  ')

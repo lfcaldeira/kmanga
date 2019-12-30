@@ -23,9 +23,9 @@ from unittest.mock import Mock
 from unittest.mock import patch
 import unittest
 
-from scraper.pipelines import CleanBasePipeline
-from scraper.pipelines import convert_to_date
-from scraper.pipelines import convert_to_number
+from scraper.scraper.pipelines import CleanBasePipeline
+from scraper.scraper.pipelines import convert_to_date
+from scraper.scraper.pipelines import convert_to_number
 
 
 # Use a class instead of a mock because __class__.__name__ is used

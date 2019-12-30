@@ -21,18 +21,29 @@ services:
       - 8081:8080
     environment:
       POSTGRES_DB: 'kmanga'
-      POSTGRES_USER: 'postgres'
-      POSTGRES_PASSWORD: 'secret'
+      POSTGRES_USER: 'kmanga'
+      POSTGRES_PASSWORD: ''
       POSTGRES_HOST: 'db'
 
 
   web:
+    image: kmanga-web
     build:
       context: .
       dockerfile: "Dockerfile"
     volumes:
-      - ../site:/kmanga
+      - ../site:/site
     ports:
       - "8000:8000"
     depends_on:
+      - db
+
+
+  scrapy:
+    image: kmanga-web
+    cmd:
+    volumes:
+      - ../site:/site
+    depends_on:
+      - web
       - db
