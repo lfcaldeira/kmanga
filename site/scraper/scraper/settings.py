@@ -9,6 +9,7 @@
 #     http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #     http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 
+SECRET_KEY = 'kmanga'
 BOT_NAME = 'scraper'
 
 SPIDER_MODULES = ['scraper.spiders']

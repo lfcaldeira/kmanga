@@ -66,7 +66,7 @@ for spider in $spiders; do
 	mv ../.coverage .
 	DJANGO_SETTINGS_MODULE=kmanga.settings \
 			      coverage run -a --branch --source=scraper \
-			      $VENV/bin/scrapy check $spider
+			      $VENV/usr/local/bin/scrapy check $spider
     fi
     if [ $? -ne 0 ]; then
 	echo "Error in spider $spider test "

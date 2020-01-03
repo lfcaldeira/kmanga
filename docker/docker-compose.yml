@@ -31,8 +31,13 @@ services:
     build:
       context: .
       dockerfile: "Dockerfile"
+
+    entrypoint: "/entrypoint.sh"
+    command: ["python", "/site/kmanga/manage.py", "runserver", "0.0.0.0:8000"]
+
     volumes:
       - ../site:/site
+      - ../media:/media
     ports:
       - "8000:8000"
     depends_on:
@@ -41,9 +46,15 @@ services:
 
   scrapy:
     image: kmanga-web
-    cmd:
     volumes:
       - ../site:/site
+      - ../media:/media
+    command: ["tail","-f","/dev/null"]
+    environment:
+      PYTHONPATH: /site:/site/kmanga:/site/scraper
+      SCRAPY_SETTINGS_MODULE: scraper.settings
+
+
     depends_on:
       - web
       - db
