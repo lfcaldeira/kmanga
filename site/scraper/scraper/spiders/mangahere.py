@@ -18,8 +18,6 @@
 # along with KManga.  If not, see <http://www.gnu.org/licenses/>.
 
 from datetime import date
-#import sys
-#sys.path.insert(0,"/site/scraper")
 
 from scraper.pipelines import convert_to_date
 from scraper.items import Genres, Manga, Issue, IssuePage

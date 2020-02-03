@@ -1,0 +1,6 @@
+#FROM postgres
+#RUN apt-get -y update && apt-get -y upgrade && apt-get install python-pip -y
+#RUN /etc/init.d/postgres start
+#COPY ./entrypoint-db.sh /
+#RUN chmod a+x entrypoint-db.sh
+#ENTRYPOINT ["/entrypoint-db.sh"]
